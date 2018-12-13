@@ -1,0 +1,35 @@
+Vous allez créer une application simple de type blog.  Cette application va afficher les posts du blog, et chaque post aura un bouton permettant de "love it" ou de "don't love it".  Chaque post aura la forme suivante :
+post: {
+  title: string,
+  content: string,
+  loveIts: number,
+  created_at: Date
+}
+Quand un post a plus de "love it" que de "don't love it" (loveIts > 0), il sera coloré en vert, et inversement quand loveIts < 0, il sera coloré en rouge.
+-------------------------------------------------------------------------------------------------
+Project Name : blog
+
+ng new blog --style=css --skip-tests=true
+
+-------------------------------------------------------------------------------------------------
+ Information : je vous conseille d'utiliser Bootstrap pour cet exercice.  Si vous créez des list-group-item dans un list-group, vous avez les classes list-group-item-success et list-group-item-danger pour colorer les item.
+-------------------------------------------------------------------------------------------------
+> npm install bootstrap@4.1.3 --save
+
+edit : angular.json
+>> add : "node_modules/bootstrap/dist/css/bootstrap.css"
+
+> ng serve
+
+-------------------------------------------------------------------------------------------------
+En termes de structure :
+
+* votre AppComponent contiendra l'array des posts, et il le passera à un component PostListComponent
+* votre PostListComponent affichera un PostListItemComponent pour chaque post dans l'array qu'il a reçu
+* chaque PostListItemComponent affichera le titre, le contenu et la date de création du post dans le template
+* les PostListItemComponent auront des boutons qui permettent d'augmenter et de diminuer le nombre de loveIts — cette modification aura uniquement un effet sur le component, et n'a pas besoin d'être remontée au component parent
+
+-------------------------------------------------------------------------------------------------
+> (ng generate component post)
+> ng generate component postList
+> ng generate component postListItem
